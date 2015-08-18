@@ -1,7 +1,13 @@
 ## An R script with two functions to cache the inverse of a matrix
+## Usage is as follows after sourcing the cachematrix.R file:
+##      list <- makeCacheMatrix(matrix)
+##      cacheSolve(list)
+##      Repeat as necessary and now it should use the cached value
 
 
-## The makeCacheMatrix function initializes the matrix 
+## The makeCacheMatrix function returns the list of functions 
+## set, get, setinverse, getinverse that allow for caching of
+## the matrix inverse
 
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
@@ -20,8 +26,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Function that returns the inverse of a matrix
-## Expects as input the list of functions returned by
-##
+## Expects as input the list of functions returned by makeCacheMatrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
